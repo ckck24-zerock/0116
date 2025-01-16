@@ -1,6 +1,6 @@
 package org.example.menu;
 
-public class Menu {
+public abstract class Menu {
     String name;
     int price;
 }
