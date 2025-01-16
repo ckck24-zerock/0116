@@ -1,7 +1,6 @@
 package org.example;
 
-import org.example.menu.Coffee;
-import org.example.menu.Menu;
+import org.example.menu.*;
 import org.example.store.BasicRes;
 import org.example.store.BusanRes;
 import org.example.store.DaeguRes;
@@ -20,15 +19,28 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args)throws Exception {
 
-        String url = "https://www.mega-mgccoffee.com/menu/menu.php?menu_category1=1&menu_category2=1&category=&list_checkbox_all=all";
-        Document doc = Jsoup.connect(url).get();
+        HashMap<String, MenuService> map = new HashMap<>();
 
-        Element element = doc.selectFirst("#menu_list");
-        //System.out.println(element);
-        Elements names = element.select(".text1 b");
+        map.put("mega", new MegaMenuService());
+        map.put("compose", new ComposeMenuService());
 
-        List<String> nameList = names.eachText();
-        System.out.println(nameList);
+        //-------------------------
+
+        MenuService menuService = map.get("mega");
+
+        menuService.getMenuList();
+
+
+
+//        String url = "https://www.mega-mgccoffee.com/menu/menu.php?menu_category1=1&menu_category2=1&category=&list_checkbox_all=all";
+//        Document doc = Jsoup.connect(url).get();
+//
+//        Element element = doc.selectFirst("#menu_list");
+//        //System.out.println(element);
+//        Elements names = element.select(".text1 b");
+//
+//        List<String> nameList = names.eachText();
+//        System.out.println(nameList);
 
         //System.out.println(names);
 
