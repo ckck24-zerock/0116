@@ -5,6 +5,8 @@ import org.example.menu.Menu;
 import org.example.store.BasicRes;
 import org.example.store.BusanRes;
 import org.example.store.DaeguRes;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,11 +15,10 @@ import java.util.Scanner;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args)throws Exception {
 
-        //추상 클래스는 객체 생성 불가
-        //물려주거나 타입으로는 유용
-        Menu m = new Coffee();
+        Document doc = Jsoup.connect("http://example.com/").get();
+
 
 
 
