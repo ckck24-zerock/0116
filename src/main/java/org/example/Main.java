@@ -8,9 +8,11 @@ import org.example.store.DaeguRes;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -18,12 +20,33 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args)throws Exception {
 
-        Document doc = Jsoup.connect("https://composecoffee.com/menu?amp%3Bcategory=185").get();
+        String url = "https://www.mega-mgccoffee.com/menu/menu.php?menu_category1=1&menu_category2=1&category=&list_checkbox_all=all";
+        Document doc = Jsoup.connect(url).get();
+
+        Element element = doc.selectFirst("#menu_list");
+        //System.out.println(element);
+        Elements names = element.select(".text1 b");
+
+        List<String> nameList = names.eachText();
+        System.out.println(nameList);
+
+        //System.out.println(names);
+
         //System.out.println(doc);
 
-        Element element = doc.selectFirst("#masonry-container");
-        System.out.println(element);
+ //       Document doc = Jsoup.connect("https://composecoffee.com/menu?amp%3Bcategory=185").get();
+//        //System.out.println(doc);
+//
+//        Element element = doc.selectFirst("#masonry-container");
+//        //System.out.println(element);
+//
+//        Elements names = element.select("h4");
+//
+//        //System.out.println(names);
+//
+//        List<String> nameList = names.eachText();
 
+//        System.out.println(nameList);
 
 //        ArrayList<BasicRes> resList = new ArrayList<>();
 //
