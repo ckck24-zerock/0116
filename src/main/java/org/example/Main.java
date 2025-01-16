@@ -7,6 +7,7 @@ import org.example.store.BusanRes;
 import org.example.store.DaeguRes;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,9 +18,11 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args)throws Exception {
 
-        Document doc = Jsoup.connect("http://example.com/").get();
+        Document doc = Jsoup.connect("https://composecoffee.com/menu?amp%3Bcategory=185").get();
+        //System.out.println(doc);
 
-
+        Element element = doc.selectFirst("#masonry-container");
+        System.out.println(element);
 
 
 //        ArrayList<BasicRes> resList = new ArrayList<>();
