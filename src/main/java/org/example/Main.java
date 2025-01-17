@@ -32,6 +32,9 @@ public class Main {
 
         System.out.println(result);
 
+        result.sort( (b1, b2) -> b1.getNum() - b2.getNum() );
+
+        System.out.println(result);
 
 
 //        Ex1 obj1 = new Ex1();
